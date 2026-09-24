@@ -443,9 +443,9 @@ const PROJECT_DETAILS = {
                 ]
             },
             {
-                title: "my portfolio-recreate (personal portfolio website)",
-                codeUrl: "https://github.com/herthey22/my-portfolio-recreate",
-                liveDemo: "https://your-vercel-link.vercel.app",
+                title: "My portfolio-recreate (personal portfolio website)",
+                codeUrl: "https://github.com/herthey22/portfolio",
+                liveDemo: "https://portfolio-eta-rouge-11.vercel.app",
                 images: [
                     { src: "assets/pag2/web photo/proj2z.png", alt: "bg2", bg2: "bg2" },
                     { src: "assets/pag2/web photo/proj2y.png", alt: "bg1", bg1: "bg1" },
