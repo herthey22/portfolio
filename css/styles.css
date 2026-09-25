@@ -1245,6 +1245,140 @@ p {
   }
 }
 
+/* =========================================================
+   PHONE DESKTOP-SITE FIX
+   Keeps real laptop desktop unchanged
+   ========================================================= */
+
+@media screen and (hover: none) and (pointer: coarse) and (max-width: 1100px) {
+
+  .container {
+    width: min(100% - 2.5rem, var(--maxw));
+  }
+
+  /* Header */
+  .header-inner {
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .btn-cv {
+    order: 3;
+  }
+
+  .primary-nav {
+    order: 4;
+    flex-basis: 100%;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .primary-nav.is-open {
+    max-height: 340px;
+  }
+
+  .primary-nav ul {
+    flex-direction: column;
+    gap: .2rem;
+    padding: .5rem 0 1rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: .7rem .2rem;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-main {
+    order: 1;
+    grid-template-columns: 1fr;
+    margin-left: 0 !important;
+    text-align: center;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .photo-frame {
+    max-width: 300px;
+  }
+
+  .photo-crystal img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-copy {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .typewriter {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: visible;
+    font-size: clamp(1.3rem, 6vw, 1.7rem);
+  }
+
+  .typed-role {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Roles */
+  .roles-panel {
+    order: 3;
+    grid-template-columns: 1fr;
+  }
+
+  /* Other sections */
+  .about-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 @media (max-width: 980px) {
   .header-inner {
     flex-wrap: wrap;
