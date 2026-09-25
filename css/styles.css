@@ -227,7 +227,6 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(94, 162, 255, .18);
 }
@@ -354,7 +353,6 @@ p {
 
 .hero {
   padding-top: 3.2rem;
-
 }
 
 /* =========================================================
@@ -395,13 +393,11 @@ p {
 
 .quote.is-on .quote-group[data-group="1"] .quote-line {
   animation: quoteIn .7s var(--ease) forwards;
-
 }
 
 .quote.is-on .quote-group[data-group="2"] .quote-line {
   animation: quoteIn .7s var(--ease) .75s forwards;
   color: var(--cyan);
-
 }
 
 .quote.is-on .quote-group[data-group="3"] .quote-line {
@@ -450,14 +446,8 @@ p {
   margin-left: -10rem;
 }
 
-
-
-
-
-
 .photo-crystal {
   position: relative;
-
 }
 
 .photo-crystal img {
@@ -651,9 +641,7 @@ p {
    About
    ========================================================= */
 .about {
-
   overflow: visible;
-
 }
 
 .about-grid {
@@ -720,7 +708,6 @@ p {
   position: absolute;
   top: -40px;
   left: 35%;
-
 }
 
 .feature-icon img {
@@ -830,7 +817,6 @@ p {
 .skill-group+.skill-group {
   border-left: 1px solid rgba(94, 162, 255, .18);
   padding-left: 1.4rem;
-
 }
 
 .skill-cat {
@@ -1236,7 +1222,7 @@ p {
 /* =========================================================
    Responsive
    ========================================================= */
-@media (max-width:1200px) {
+@media (max-width: 1200px) {
   .hero-grid {
     grid-template-columns: minmax(150px, .7fr) minmax(0, 2fr);
   }
@@ -1259,7 +1245,7 @@ p {
   }
 }
 
-@media (max-width:980px) {
+@media (max-width: 980px) {
   .header-inner {
     flex-wrap: wrap;
     gap: .75rem;
@@ -1304,7 +1290,6 @@ p {
 
   .hero-grid {
     grid-template-columns: 1fr;
-
   }
 
   .quote-wrap {
@@ -1318,6 +1303,8 @@ p {
     grid-template-columns: 1fr;
     text-align: center;
     justify-items: center;
+    margin-left: 0;
+    /* fixed: was -10rem on tablet */
   }
 
   .photo-frame {
@@ -1336,6 +1323,13 @@ p {
 
   .typewriter {
     justify-content: center;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .typed-role {
+    white-space: normal;
+    word-break: break-word;
   }
 
   .hero-roles {
@@ -1344,6 +1338,7 @@ p {
 
   .hero-text {
     text-align: center;
+    max-width: 100%;
   }
 
   .hero-actions {
@@ -1375,7 +1370,6 @@ p {
     height: 50px;
     top: -25px;
     left: 45%;
-
   }
 
   .skills-grid {
@@ -1409,14 +1403,52 @@ p {
   }
 }
 
-@media (max-width:620px) {
+@media (max-width: 768px) {
+
+  /* Extra phone polish — does not affect laptop */
+  .hero-main {
+    margin-left: 0 !important;
+  }
+
+  .typewriter {
+    font-size: clamp(1.3rem, 6vw, 1.7rem) !important;
+    min-height: 2.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible !important;
+  }
+
+  .typed-role {
+    white-space: normal !important;
+    word-break: break-word !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .hero-text {
+    max-width: 100% !important;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 620px) {
   .section {
     padding: 3rem 0;
   }
 
   .hero-main {
-
-    margin-left: 1rem;
+    margin-left: 0 !important;
   }
 
   .brand {
@@ -1467,10 +1499,74 @@ p {
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 1.5rem, var(--maxw));
+  }
+
+  .hero {
+    padding-top: 2.5rem;
+  }
+
+  .typewriter {
+    font-size: 1.2rem !important;
+    min-height: 2rem;
+  }
+
+  .typed-role {
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  .hero-greeting {
+    font-size: 1.1rem;
+  }
+
+  .hero-text {
+    font-size: 0.9rem;
+  }
+
+  .photo-crystal img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .quote {
+    font-size: 1.1rem;
+  }
+
+  .roles-panel {
+    grid-template-columns: 1fr;
+    padding: 0.9rem;
+  }
+
+  .role-card {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-body h3 {
+    font-size: 0.95rem;
+  }
+
+  .together {
+    font-size: 1.6rem;
+    text-align: center;
+    transform: none;
+  }
+}
+
 /* =========================================================
    Reduced motion
    ========================================================= */
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }

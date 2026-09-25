@@ -873,62 +873,64 @@
 }
 
 
+/* Force writeups section + cards visible on all screens */
+#writeups.reveal-up,
+#writeups.reveal-up.is-in,
+.detail-gallery#writeups {
+    opacity: 1 !important;
+    transform: none !important;
+}
 
-
-/* =========================================================
-   CONTENT GRID (writeups)
-   ========================================================= */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 1.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .content-card {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .5s var(--ease), transform .5s var(--ease);
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
     padding: 1rem;
     background: rgba(10, 20, 60, .5);
     border: 1px solid var(--line);
     border-radius: 16px;
-}
-
-.content-card.is-in {
-    opacity: 1;
-    transform: none;
+    transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
 }
 
 .content-card:hover {
     border-color: var(--cyan);
     box-shadow: 0 0 20px rgba(47, 224, 232, .25);
-    z-index: 1;
-
 }
 
 .content-thumb {
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
     margin-bottom: .9rem;
+    background: var(--navy-700);
 }
 
 .content-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .content-card h3 {
     color: #fff;
     font-size: 1rem;
-    margin-bottom: .4rem;
+    margin: 0 0 .4rem;
 }
 
 .content-card p {
     color: var(--dim);
     font-size: .85rem;
-    margin-bottom: .9rem;
+    margin: 0 0 .9rem;
 }
 
 .content-more {
@@ -943,6 +945,26 @@
 .content-more svg {
     width: 16px;
     height: 16px;
+}
+
+@media (max-width: 860px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* =========================================================

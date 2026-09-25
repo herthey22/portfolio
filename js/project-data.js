@@ -110,7 +110,7 @@ const PROJECT_DETAILS = {
        --------------------------------------------------- */
     "content-write-up": {
         type: "content-grid",
-        title: "My Content Writeup",
+        title: "My  Writeups",
         tagline: "Ideas | Stories | Impact",
         tags: ["Content Writing", "Storytelling"],
         icon: "assets/icons/content.png",
