@@ -6,6 +6,15 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const isAndroidPhone =
+    /Android/i.test(navigator.userAgent) &&
+    navigator.maxTouchPoints > 0 &&
+    Math.min(screen.width, screen.height) <= 600;
+
+  if (isAndroidPhone) {
+    document.documentElement.classList.add("android-phone");
+  }
+
   /* ---------------------------------------------------
      1. Build the "My Work & Certificate" cards
      --------------------------------------------------- */

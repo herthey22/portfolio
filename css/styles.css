@@ -36,6 +36,21 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  min-width: 0;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
 }
 
 html {
@@ -1222,6 +1237,10 @@ p {
 /* =========================================================
    Responsive
    ========================================================= */
+
+/* ---------------------------------------------------------
+   Desktop / smaller desktop
+   --------------------------------------------------------- */
 @media (max-width: 1200px) {
   .hero-grid {
     grid-template-columns: minmax(150px, .7fr) minmax(0, 2fr);
@@ -1229,11 +1248,11 @@ p {
 
   .roles-panel {
     grid-column: 1 / -1;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .together {
@@ -1241,148 +1260,28 @@ p {
   }
 
   .work-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* =========================================================
-   PHONE DESKTOP-SITE FIX
-   Keeps real laptop desktop unchanged
-   ========================================================= */
 
-@media screen and (hover: none) and (pointer: coarse) and (max-width: 1100px) {
-
+/* ---------------------------------------------------------
+   Tablet
+   --------------------------------------------------------- */
+@media (max-width: 980px) {
   .container {
-    width: min(100% - 2.5rem, var(--maxw));
-  }
-
-  /* Header */
-  .header-inner {
-    flex-wrap: wrap;
-    gap: .75rem;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-
-  .btn-cv {
-    order: 3;
-  }
-
-  .primary-nav {
-    order: 4;
-    flex-basis: 100%;
-    margin: 0;
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  .primary-nav.is-open {
-    max-height: 340px;
-  }
-
-  .primary-nav ul {
-    flex-direction: column;
-    gap: .2rem;
-    padding: .5rem 0 1rem;
-  }
-
-  .nav-link {
-    display: block;
-    padding: .7rem .2rem;
-  }
-
-  /* Hero */
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-main {
-    order: 1;
-    grid-template-columns: 1fr;
-    margin-left: 0 !important;
-    text-align: center;
-    justify-items: center;
-    width: 100%;
-  }
-
-  .photo-frame {
-    max-width: 300px;
-  }
-
-  .photo-crystal img {
-    width: 220px;
-    height: 220px;
-  }
-
-  .hero-copy {
-    display: grid;
-    justify-items: center;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .typewriter {
-    justify-content: center;
-    flex-wrap: wrap;
-    overflow: visible;
-    font-size: clamp(1.3rem, 6vw, 1.7rem);
-  }
-
-  .typed-role {
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .hero-text {
-    text-align: center;
+    width: min(100% - 2rem, var(--maxw));
     max-width: 100%;
   }
 
-  .hero-actions {
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
-    max-width: 320px;
-    justify-content: center;
-  }
-
-  /* Roles */
-  .roles-panel {
-    order: 3;
-    grid-template-columns: 1fr;
-  }
-
-  /* Other sections */
-  .about-grid,
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-groups {
-    grid-template-columns: 1fr;
-  }
-
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-@media (max-width: 980px) {
   .header-inner {
     flex-wrap: wrap;
     gap: .75rem;
+    min-width: 0;
+  }
+
+  .brand {
+    min-width: 0;
   }
 
   .nav-toggle {
@@ -1396,6 +1295,7 @@ p {
   .primary-nav {
     order: 4;
     flex-basis: 100%;
+    width: 100%;
     margin: 0;
     max-height: 0;
     overflow: hidden;
@@ -1422,40 +1322,60 @@ p {
     display: none;
   }
 
+  /* Hero */
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
   }
 
   .quote-wrap {
     order: 2;
+    width: 100%;
+    max-width: 100%;
     transform: rotate(-5deg);
     margin-left: .5rem;
   }
 
   .hero-main {
     order: 1;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     text-align: center;
     justify-items: center;
-    margin-left: 0;
-    /* fixed: was -10rem on tablet */
+    margin-left: 0 !important;
   }
 
   .photo-frame {
     max-width: 300px;
   }
 
+  .photo-crystal {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
   .photo-crystal img {
-    height: 220px;
     width: 220px;
+    height: 220px;
+    max-width: 100%;
+    object-fit: cover;
   }
 
   .hero-copy {
     display: grid;
     justify-items: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .typewriter {
+    width: 100%;
+    max-width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     overflow: visible;
@@ -1464,34 +1384,47 @@ p {
   .typed-role {
     white-space: normal;
     word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   .hero-roles {
     justify-content: center;
-  }
-
-  .hero-text {
-    text-align: center;
     max-width: 100%;
   }
 
+  .hero-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
   .hero-actions {
+    width: 100%;
+    max-width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .roles-panel {
     order: 3;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* About */
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .feature-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .feature-card {
+    min-width: 0;
     border-bottom: 1px solid rgba(94, 162, 255, .18);
   }
 
@@ -1503,11 +1436,13 @@ p {
     width: 50px;
     height: 50px;
     top: -25px;
-    left: 45%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
+  /* Skills */
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .skills-col {
@@ -1518,7 +1453,7 @@ p {
   }
 
   .skill-groups {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .skill-group+.skill-group {
@@ -1529,22 +1464,52 @@ p {
   }
 
   .tool-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  /* Work */
   .work-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 768px) {
 
-  /* Extra phone polish — does not affect laptop */
+/* ---------------------------------------------------------
+   Phone / small tablet
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 1.5rem, var(--maxw));
+    max-width: 100%;
+  }
+
+  .section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-grid,
+  .hero-main,
+  .hero-copy,
+  .hero-actions,
+  .roles-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .hero-main {
     margin-left: 0 !important;
   }
 
   .typewriter {
+    width: 100%;
+    max-width: 100%;
     font-size: clamp(1.3rem, 6vw, 1.7rem) !important;
     min-height: 2.2rem;
     flex-wrap: wrap;
@@ -1555,6 +1520,7 @@ p {
   .typed-role {
     white-space: normal !important;
     word-break: break-word !important;
+    overflow-wrap: anywhere;
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -1564,7 +1530,6 @@ p {
   }
 
   .hero-actions {
-    width: 100%;
     flex-direction: column;
     align-items: center;
   }
@@ -1574,27 +1539,13 @@ p {
     max-width: 320px;
     justify-content: center;
   }
-}
 
-@media (max-width: 620px) {
-  .section {
-    padding: 3rem 0;
-  }
-
-  .hero-main {
-    margin-left: 0 !important;
-  }
-
-  .brand {
-    font-size: 1.5rem;
-  }
-
-  .quote {
-    font-size: 1.2rem;
+  .roles-panel {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .feature-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .feature-card {
@@ -1602,15 +1553,15 @@ p {
   }
 
   .tool-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .work-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     text-align: left;
   }
 
@@ -1618,28 +1569,28 @@ p {
     justify-content: center;
     text-align: center;
   }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .hero-actions {
-    width: 100%;
-  }
-
-  .btn-cv {
-    width: auto;
-  }
 }
 
+
+/* ---------------------------------------------------------
+   Small phone
+   --------------------------------------------------------- */
 @media (max-width: 480px) {
   .container {
-    width: min(100% - 1.5rem, var(--maxw));
+    width: calc(100% - 1.5rem);
+    max-width: 100%;
   }
 
   .hero {
     padding-top: 2.5rem;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+
+  .hero-greeting {
+    font-size: 1.1rem;
   }
 
   .typewriter {
@@ -1647,17 +1598,8 @@ p {
     min-height: 2rem;
   }
 
-  .typed-role {
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  .hero-greeting {
-    font-size: 1.1rem;
-  }
-
   .hero-text {
-    font-size: 0.9rem;
+    font-size: .9rem;
   }
 
   .photo-crystal img {
@@ -1670,12 +1612,12 @@ p {
   }
 
   .roles-panel {
-    grid-template-columns: 1fr;
-    padding: 0.9rem;
+    grid-template-columns: minmax(0, 1fr);
+    padding: .9rem;
   }
 
   .role-card {
-    padding: 0.65rem 0.7rem;
+    padding: .65rem .7rem;
   }
 
   .section-title {
@@ -1683,11 +1625,11 @@ p {
   }
 
   .tool-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .work-body h3 {
-    font-size: 0.95rem;
+    font-size: .95rem;
   }
 
   .together {
@@ -1695,11 +1637,235 @@ p {
     text-align: center;
     transform: none;
   }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-cv {
+    width: auto;
+  }
 }
+
+
+/* =========================================================
+   Android phone — Chrome "Desktop Site"
+   ========================================================= */
+
+html.android-phone,
+html.android-phone body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html.android-phone .container {
+  width: calc(100% - 1.5rem);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+html.android-phone .header-inner {
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+html.android-phone .nav-toggle {
+  display: flex;
+}
+
+html.android-phone .btn-cv {
+  order: 3;
+}
+
+html.android-phone .primary-nav {
+  order: 4;
+  flex-basis: 100%;
+  width: 100%;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+html.android-phone .primary-nav.is-open {
+  max-height: 340px;
+}
+
+html.android-phone .primary-nav ul {
+  flex-direction: column;
+  gap: .2rem;
+  padding: .5rem 0 1rem;
+}
+
+html.android-phone .nav-link {
+  display: block;
+  padding: .7rem .2rem;
+}
+
+html.android-phone .nav-link::after {
+  display: none;
+}
+
+html.android-phone .hero {
+  padding-top: 2.5rem;
+}
+
+html.android-phone .hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 100%;
+}
+
+html.android-phone .quote-wrap {
+  order: 2;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  transform: rotate(-5deg);
+}
+
+html.android-phone .hero-main {
+  order: 1;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-left: 0 !important;
+  text-align: center;
+  justify-items: center;
+}
+
+html.android-phone .photo-crystal {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+html.android-phone .photo-crystal img {
+  width: 180px;
+  height: 180px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+html.android-phone .hero-copy {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+}
+
+html.android-phone .typewriter {
+  width: 100%;
+  max-width: 100%;
+  min-height: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: visible;
+  font-size: 1.2rem;
+}
+
+html.android-phone .typed-role {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere;
+}
+
+html.android-phone .hero-roles {
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+html.android-phone .hero-text {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+html.android-phone .hero-actions {
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+html.android-phone .hero-actions .btn {
+  width: 100%;
+  max-width: 320px;
+  justify-content: center;
+}
+
+html.android-phone .roles-panel {
+  order: 3;
+  width: 100%;
+  max-width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.android-phone .about-grid,
+html.android-phone .skills-grid,
+html.android-phone .contact-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.android-phone .feature-cards {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.android-phone .feature-card {
+  border-right: 0;
+}
+
+html.android-phone .skill-groups {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.android-phone .skill-group+.skill-group {
+  border-left: 0;
+  padding-left: 0;
+  border-top: 1px solid rgba(94, 162, 255, .18);
+  padding-top: 1.2rem;
+}
+
+html.android-phone .skills-col {
+  border-right: 0;
+  padding-right: 0;
+}
+
+html.android-phone .tool-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+html.android-phone .work-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+html.android-phone .contact-grid {
+  text-align: left;
+}
+
+html.android-phone .together {
+  text-align: center;
+  transform: none;
+}
+
+html.android-phone img,
+html.android-phone video,
+html.android-phone iframe,
+html.android-phone svg {
+  max-width: 100%;
+}
+
 
 /* =========================================================
    Reduced motion
    ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
