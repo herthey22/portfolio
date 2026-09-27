@@ -1527,6 +1527,7 @@ p {
 
   .hero-text {
     max-width: 100% !important;
+    width: 95%;
   }
 
   .hero-actions {
@@ -1540,9 +1541,31 @@ p {
     justify-content: center;
   }
 
-  .roles-panel {
-    grid-template-columns: minmax(0, 1fr);
+  /* Center the quotation */
+  .quote-wrap {
+    width: 100%;
+    margin: 1rem auto .5rem;
+    padding: 0 1rem;
+    text-align: center;
+    transform: rotate(-3deg);
   }
+
+  .quote {
+    width: 100%;
+    text-align: center;
+  }
+
+  .quote-heart {
+    margin: .6rem auto 0;
+  }
+
+  /* Center the role panel */
+  .roles-panel {
+    width: 95%;
+    max-width: 100%;
+    margin: 1rem auto 0;
+  }
+
 
   .feature-cards {
     grid-template-columns: minmax(0, 1fr);
@@ -1780,7 +1803,7 @@ html.android-phone .hero-roles {
 }
 
 html.android-phone .hero-text {
-  width: 100%;
+  width: 95%;
   max-width: 100%;
   text-align: center;
   overflow-wrap: anywhere;
@@ -1802,7 +1825,7 @@ html.android-phone .hero-actions .btn {
 
 html.android-phone .roles-panel {
   order: 3;
-  width: 100%;
+  width: 93%;
   max-width: 100%;
   grid-template-columns: minmax(0, 1fr);
 }

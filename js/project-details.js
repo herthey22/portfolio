@@ -219,7 +219,7 @@ const PROJECTS = [
 
     const ov = project.overview;
     const techCol = (ov.technologies && ov.technologies.length)
-      ? colBlock("gear", "Technologies Used", ov.technologies.map(plainLine))
+      ? colBlock("gear", "Technologies Used", ov.technologies.map(checkLine))
       : "";
     const featCol = colBlock("star", ov.featuresLabel || "Key Features", ov.features.map(checkLine));
 
@@ -230,7 +230,7 @@ const PROJECTS = [
       "<div><h2>Project Overview</h2><p>Here's a quick look at what this project is about and what it achieves.</p></div>" +
       "</div>" +
       '<div class="overview-grid">' +
-      colBlock("image", "Project Description", [plainLine(ov.description)], true) +
+      colBlock("image", "Project Description", [ov.description], true) +
       techCol +
       featCol +
       "</div>" +
